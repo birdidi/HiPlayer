@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.android.hi.hiplayer"
-        minSdkVersion 18
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -14,20 +14,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
-        }
-
-        debug {
-            signingConfig signingConfigs.debug
-        }
-    }
-
-    signingConfigs {
-        debug {
-            storeFile file("e:/dev/ndkeystore")
-            storePassword "ndkeystore"
-            keyAlias "ndkeystore"
-            keyPassword "ndkeystore"
         }
     }
 }
@@ -41,9 +27,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'com.google.android.exoplayer:exoplayer:r2.4.0'
-
-    implementation project(':lib-core')
-
-    compile 'io.reactivex:rxjava:1.0.14'
-    compile 'io.reactivex:rxandroid:1.0.1'
 }

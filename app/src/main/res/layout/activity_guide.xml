@@ -8,8 +8,9 @@
         android:id="@+id/iv_guide_post"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#131216"
-        android:scaleType="matrix" />
+        android:background="#fff"
+        android:scaleType="matrix"
+        android:src="@drawable/ic_guide_1" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -66,7 +67,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="8dp"
             android:text="开启最右屏视频桌面，遇到更多有趣的灵魂"
             android:textColor="#000"
             android:textSize="15sp" />

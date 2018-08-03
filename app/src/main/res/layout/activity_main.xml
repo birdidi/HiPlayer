@@ -30,26 +30,6 @@
                 android:text="视频处理" />
 
             <Button
-                android:id="@+id/btn_extract_video"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="抽取纯视频" />
-
-            <Button
-                android:id="@+id/btn_extract_audio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="抽取纯BGM" />
-
-            <Button
-                android:id="@+id/btn_combine_video"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="合成视频" />
-        </TableRow>
-
-        <TableRow>
-            <Button
                 android:id="@+id/btn_guide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -72,11 +72,14 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initMatrix() {
+        ivGallery.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+
         int[] drawableWH;
         float dx, dy;
 
         //图一
         drawableWH = getBitmapWH(R.drawable.ic_guide_1);
+        ivGallery.setImageResource(R.drawable.ic_guide_1);
         matrixA = new Matrix();
 
         float scaleX = (screenW * 1.4f) / drawableWH[0];
@@ -90,10 +93,13 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         deltaA[0] = dx;
         deltaA[1] = dy;
         matrixA.setScale(scaleX, scaleY);
-//        matrixA.postTranslate(dx, dy);
+
+        Matrix matrixDef= new Matrix(matrixA);
+        matrixDef.postTranslate(dx * (2.0f - 0.6f), dy * (0.6f - 0.5f) * 2);
+        ivGallery.setImageMatrix(matrixDef);
 
         //图二
-        drawableWH = getBitmapWH(R.drawable.ic_guide_3);
+        drawableWH = getBitmapWH(R.drawable.ic_guide_2);
         scaleX = ((screenW * 1.0f) / drawableWH[0]);
         scaleY = ((screenH * 1.0f) / drawableWH[1]);
         scaleX = scaleY = Math.max(scaleX, scaleY);
@@ -129,7 +135,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
 
         animatorSet = new AnimatorSet();
 
-        ValueAnimator animatorA = ValueAnimator.ofFloat(0.5f, 1f);
+        ValueAnimator animatorA = ValueAnimator.ofFloat(0.6f, 1f);
         animatorA.setDuration(2000);
         animatorA.setInterpolator(new AccelerateDecelerateInterpolator());
         animatorA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -149,7 +155,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
-        ValueAnimator animatorB = ValueAnimator.ofFloat(scaleB[0], scaleB[0] + 1.5f);
+        ValueAnimator animatorB = ValueAnimator.ofFloat(scaleB[0], scaleB[0] + 0.5f);
         animatorB.setDuration(2000);
         animatorB.setInterpolator(new AccelerateDecelerateInterpolator());
         animatorB.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -158,7 +164,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 float val = (float) animation.getAnimatedValue();
                 Matrix mm = new Matrix();
                 mm.setScale(val, val);
-                mm.postTranslate((screenW - deltaB[0] * val) / 2 * (29 / 32f), (screenH - deltaB[1] * val) / 2 * (26 / 32f));
+                mm.postTranslate((screenW - deltaB[0] * val) / 2 * (36 / 32f), (screenH - deltaB[1] * val) / 2 * (34 / 32f));
                 ivGallery.setImageMatrix(mm);
             }
         });
@@ -166,7 +172,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onAnimationStart(Animator animation) {
                 super.onAnimationStart(animation);
-                ivGallery.setImageResource(R.drawable.ic_guide_3);
+                ivGallery.setImageResource(R.drawable.ic_guide_2);
             }
         });
 
@@ -212,9 +218,14 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onStart() {
         super.onStart();
-        if (animatorSet != null) {
-            animatorSet.start();
-        }
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (animatorSet != null) {
+                    animatorSet.start();
+                }
+            }
+        }, 800);
     }
 
     @Override

@@ -9,13 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#131216"
-        android:scaleType="matrix"
-        android:src="@drawable/ic_guide_1" />
+        android:scaleType="matrix" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/guide_desc_ll">
+        android:layout_above="@+id/guide_desc_ll"
+        android:background="#70000000">
 
         <LinearLayout
             android:id="@+id/btn_guide_play"

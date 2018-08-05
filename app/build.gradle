@@ -43,4 +43,7 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer:r2.4.0'
 
     implementation project(':lib-core')
+
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'io.reactivex:rxandroid:1.0.1'
 }

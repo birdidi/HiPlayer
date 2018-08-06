@@ -4,11 +4,32 @@
     android:layout_height="match_parent">
 
 
-    <LinearLayout
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:columnCount="4">
 
+        <TableRow>
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_extract_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="导出视频轨" />
+
+            <Button
+                android:id="@+id/btn_extract_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="导出音频轨" />
+
+            <Button
+                android:id="@+id/btn_combine_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合成视频" />
+
+        </TableRow>
+    </GridLayout>
 
 </LinearLayout>

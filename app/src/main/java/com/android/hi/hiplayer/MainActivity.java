@@ -1,18 +1,21 @@
 package com.android.hi.hiplayer;
 
-import android.graphics.SurfaceTexture;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Surface;
 import android.view.TextureView;
+import android.view.View;
 
+import com.android.hi.hiplayer.activity.GuideActivity;
+import com.android.hi.hiplayer.activity.VideoEditActivity;
 import com.android.hi.hiplayer.kitset.VideoUtil;
 import com.android.hi.hiplayer.player.Player;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String SOURCE_PATH = Environment.getExternalStorageDirectory() + "/abc.mp4";
 
     TextureView videoCanvas;
     VideoUtil videoUtil;
@@ -24,11 +27,59 @@ public class MainActivity extends AppCompatActivity {
         videoCanvas = (TextureView) findViewById(R.id.video_canvas);
         videoUtil = new VideoUtil();
 
-        try {
-            videoUtil.aa(this, Environment.getExternalStorageDirectory() + "/DCIM/Camera/abc.mp4");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        initView();
+
+    }
+
+    private void initView() {
+        findViewById(R.id.btn_process_video).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                try {
+//                    videoUtil.aa(MainActivity.this.getApplicationContext(), SOURCE_PATH,
+//                            BaseConfig.getBaseDir() + "/abc_final.mp4");
+//                } catch (Exception e) {
+//                    Log.e("cxydebug", "exception : " + e.getMessage());
+//                    e.printStackTrace();
+//                }
+
+                Intent jumpToMediaEdit = new Intent();
+                jumpToMediaEdit.setClass(MainActivity.this, VideoEditActivity.class);
+                startActivity(jumpToMediaEdit);
+            }
+        });
+
+//        findViewById(R.id.btn_extract_video).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                videoUtil.extractPureVideoFile(SOURCE_PATH, BaseConfig.getBaseDir() + "/abc_pure_video.mp4");
+//            }
+//        });
+//
+//        findViewById(R.id.btn_extract_audio).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                videoUtil.extractPureAudioFile(SOURCE_PATH, BaseConfig.getBaseDir() + "/abc_pure_audio.mp3");
+//            }
+//        });
+//
+//        findViewById(R.id.btn_combine_video).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                videoUtil.combineVideo(Environment.getExternalStorageDirectory() + "/abc.mp4",
+//                        Environment.getExternalStorageDirectory() + "/aa.mp4",
+//                        BaseConfig.getBaseDir() + "/abc_combine.mp4");
+//            }
+//        });
+
+        findViewById(R.id.btn_guide).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jumpGuide = new Intent();
+                jumpGuide.setClass(MainActivity.this, GuideActivity.class);
+                MainActivity.this.startActivity(jumpGuide);
+            }
+        });
     }
 
     @Override

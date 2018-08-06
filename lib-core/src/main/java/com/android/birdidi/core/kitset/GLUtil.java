@@ -1,4 +1,4 @@
-package com.android.hi.hiplayer.kitset;
+package com.android.birdidi.core.kitset;
 
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;

@@ -23,6 +23,11 @@ import java.net.URISyntaxException;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 public class VideoEditActivity extends AppCompatActivity {
 
@@ -109,8 +114,24 @@ public class VideoEditActivity extends AppCompatActivity {
             case R.id.btn_extract_audio:
                 if (TextUtils.isEmpty(path = checkFileValid(tvPathExtractAudio))) return;
                 outputPath = BaseConfig.getBaseDir() + "/" + System.currentTimeMillis() + ".mp3";
-                videoUtil.extractPureAudioFile(path, outputPath);
-                Toast.makeText(this, "导出：" + outputPath, Toast.LENGTH_SHORT).show();
+                final String extAudioSource = path;
+                final String extAudioOutput = outputPath;
+                Observable.create(new Observable.OnSubscribe<String>() {
+                    @Override
+                    public void call(Subscriber<? super String> subscriber) {
+                        videoUtil.extractPureAudioFile(extAudioSource, extAudioOutput);
+                        subscriber.onNext(extAudioOutput);
+                        subscriber.onCompleted();
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        Toast.makeText(VideoEditActivity.this, "导出：" + s, Toast.LENGTH_SHORT).show();
+                    }
+                });
                 break;
             case R.id.tv_path_extract_audio:
                 openFileChooser("video/*", REQUEST_CODE_PURE_AUDIO);

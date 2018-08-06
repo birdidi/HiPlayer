@@ -15,4 +15,28 @@
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:rowCount="2">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn_process_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频处理" />
+
+            <Button
+                android:id="@+id/btn_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="引导页" />
+        </TableRow>
+
+    </GridLayout>
+
+
 </LinearLayout>

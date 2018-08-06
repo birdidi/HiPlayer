@@ -52,7 +52,7 @@ public class SimpleRenderThread extends Thread {
                 maxTextWidth = Math.max((int) preTextWidth, maxTextWidth);
                 canvas.drawText(" seconds.", maxTextWidth + 20 + 100, 410, p);
                 Thread.sleep(1);
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             } finally {
                 if (canvas != null) {

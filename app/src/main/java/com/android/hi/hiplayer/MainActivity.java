@@ -35,42 +35,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_process_video).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                try {
-//                    videoUtil.aa(MainActivity.this.getApplicationContext(), SOURCE_PATH,
-//                            BaseConfig.getBaseDir() + "/abc_final.mp4");
-//                } catch (Exception e) {
-//                    Log.e("cxydebug", "exception : " + e.getMessage());
-//                    e.printStackTrace();
-//                }
-
                 Intent jumpToMediaEdit = new Intent();
                 jumpToMediaEdit.setClass(MainActivity.this, VideoEditActivity.class);
                 startActivity(jumpToMediaEdit);
             }
         });
-
-//        findViewById(R.id.btn_extract_video).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                videoUtil.extractPureVideoFile(SOURCE_PATH, BaseConfig.getBaseDir() + "/abc_pure_video.mp4");
-//            }
-//        });
-//
-//        findViewById(R.id.btn_extract_audio).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                videoUtil.extractPureAudioFile(SOURCE_PATH, BaseConfig.getBaseDir() + "/abc_pure_audio.mp3");
-//            }
-//        });
-//
-//        findViewById(R.id.btn_combine_video).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                videoUtil.combineVideo(Environment.getExternalStorageDirectory() + "/abc.mp4",
-//                        Environment.getExternalStorageDirectory() + "/aa.mp4",
-//                        BaseConfig.getBaseDir() + "/abc_combine.mp4");
-//            }
-//        });
 
         findViewById(R.id.btn_guide).setOnClickListener(new View.OnClickListener() {
             @Override

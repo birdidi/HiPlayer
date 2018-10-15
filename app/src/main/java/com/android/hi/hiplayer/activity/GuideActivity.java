@@ -53,6 +53,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
+		//modified from v2
         screenW = ScreenUtil.getCurrentScreenWidth(getApplicationContext());
         screenH = ScreenUtil.getCurrentScreenHeight(getApplicationContext());
         Log.e(TAG, "screen: " + screenW + ", " + screenH);

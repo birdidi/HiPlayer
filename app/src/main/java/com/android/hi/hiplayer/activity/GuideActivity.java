@@ -42,6 +42,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == WHAT_ANIMATOR_LOOP) {
+				//modified flag A
                 if (animatorSet != null) {
                     animatorSet.start();
                 }
@@ -74,7 +75,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
 
     private void initMatrix() {
         ivGallery.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-
+		//modified flag B
         int[] drawableWH;
         float dx, dy;
 

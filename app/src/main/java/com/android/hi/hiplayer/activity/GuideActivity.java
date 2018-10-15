@@ -54,7 +54,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
-		//modified from v2
+        //pending modify from v1
         screenW = ScreenUtil.getCurrentScreenWidth(getApplicationContext());
         screenH = ScreenUtil.getCurrentScreenHeight(getApplicationContext());
         Log.e(TAG, "screen: " + screenW + ", " + screenH);
@@ -73,6 +73,9 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         initMatrix();
     }
 
+    /**
+     * 初始化矩阵动画
+     */
     private void initMatrix() {
         ivGallery.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 		//modified flag B

@@ -42,7 +42,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == WHAT_ANIMATOR_LOOP) {
-				//modified flag A
+				//modified flag C
                if (animatorSet != null) {
                     animatorSet.start();
                 }
@@ -54,7 +54,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
-        //pending modify from v2
+        //pending modify from v1
         screenW = ScreenUtil.getCurrentScreenWidth(getApplicationContext());
         screenH = ScreenUtil.getCurrentScreenHeight(getApplicationContext());
         Log.e(TAG, "screen: " + screenW + ", " + screenH);

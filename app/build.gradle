@@ -34,10 +34,10 @@ dependencies {
 
     implementation 'com.google.android.exoplayer:exoplayer:r2.4.0'
 
-    compile 'com.jakewharton:butterknife:7.0.1'
+    implementation 'com.jakewharton:butterknife:7.0.1'
 
     implementation project(':lib-core')
 
-    compile 'io.reactivex:rxjava:1.0.14'
-    compile 'io.reactivex:rxandroid:1.0.1'
+    implementation 'io.reactivex:rxjava:1.0.14'
+    implementation 'io.reactivex:rxandroid:1.0.1'
 }
